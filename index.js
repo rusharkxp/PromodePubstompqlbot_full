@@ -101,9 +101,9 @@ const dessertScene = new WizardScene('desserts-scene',
                         order.save().then(() => {
                             ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
                                 markup.resize()
-                                return markup.keyboard(kb.main_menu)
+                                return markup.keyboard(kb.desserts)
                             }))
-                            return ctx.scene.leave()
+                            return ctx.wizard.back()
                         })
                     }
                     else{
@@ -127,7 +127,7 @@ const dessertScene = new WizardScene('desserts-scene',
                                 markup.resize()
                                 return markup.keyboard(kb.desserts)
                             }))
-                            return ctx.scene.back()
+                            return ctx.wizard.back()
                         })
                     }else{
                         ctx.reply('Вводите правильно!')
