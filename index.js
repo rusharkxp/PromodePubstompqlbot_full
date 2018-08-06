@@ -338,9 +338,10 @@ const pizzaScene = new WizardScene('pizza-scene',
                             order.save().then(() => {
                                 ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
                                     markup.resize()
-                                    return markup.keyboard(kb.main_menu)
+                                    return markup.keyboard(kb.dough_heightPage)
                                 }))
-                                return ctx.scene.leave()
+                                ctx.scene.leave()
+                                ctx.scene.enter('pizza-scene')
                             })
                         }else{
                             ctx.reply('Вводите правильно!')
