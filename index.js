@@ -1317,7 +1317,7 @@ bot.hears(/\/start/,(ctx) => {
             }))
         }
     }).catch(error => ctx.reply(`Что-то пошло не так\n${error}`))
-})w
+})
 const port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", function() {
     console.log("Listening on Port "+port);
