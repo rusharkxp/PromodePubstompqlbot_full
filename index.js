@@ -554,7 +554,7 @@ const drinksScene = new WizardScene('drinks-scene',
                     amount: amount,
                     name: name
                 }
-                ctx.replyWithPhoto(helper.getPhoto(name),
+                ctx.replyWithPhoto(helper.getPhoto(name,amount),
                     Extra.load({caption: helper.getCaption(name) + `\nЦена: ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум'}\nОбъем: ${amount}\n\nВыберите или введите количество:`}).markup((m) => {
                         m.resize()
                         return m.keyboard(kb.counterPage)

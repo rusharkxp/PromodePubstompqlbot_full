@@ -241,7 +241,7 @@ module.exports = {
     getToken(){
         return '694226891:AAEqvAh4o3ROCGB4rYD50VvZHeSPzTnDyVA'
     },
-    getPhoto(name){
+    getPhoto(name,amount){
         switch (name){
             case prices.pizzaPage.pizza_1.name:
                 return { source: 'images/MARGARITA.jpg' }
@@ -286,8 +286,17 @@ module.exports = {
             case prices.pizzaPage.pizza_11.name:
                 return { source: 'images/COMBINE.jpg' }
                 break
-            case prices.drinksPage.fresh.cola.name:
             case prices.drinksPage.fresh.compot.name:
+                if(amount === prices.counter_drinks._500ml.name){
+                    return { source: 'images/Compot500.jpg' }
+                }
+                else if(amount === prices.counter_drinks._1000ml.name){
+                    return { source: 'images/Compot1000.jpg' }
+                }else{
+                    return { source: 'images/Water.jpg' }
+                }
+                break
+            case prices.drinksPage.fresh.cola.name:
             case prices.drinksPage.fresh.water.name:
             case prices.drinksPage.fresh.juice.name:
                 return { source: 'images/Water.jpg' }
@@ -307,12 +316,17 @@ module.exports = {
             case prices.dessertsPage.eklerchiki.name:
                 return { source: 'images/EKLERCHIKI.jpg' }
                 break
-            case prices.drinksPage.coffee.hot.grand_capuchino.name:
             case prices.drinksPage.coffee.hot.capuchino.name:
+                return { source: 'images/Capuchino.jpg' }
+                break
+            case prices.drinksPage.coffee.cold.bumble.name:
+                return { source: 'images/Bambl.jpg' }
+                break
+            case prices.drinksPage.coffee.hot.grand_capuchino.name:
             case prices.drinksPage.coffee.hot.latte.name:
             case prices.drinksPage.coffee.hot.americano.name:
             case prices.drinksPage.coffee.cold.ice_latte.name:
-            case prices.drinksPage.coffee.cold.bumble.name:
+
                 return { source: 'images/coffee.jpg' }
                 break
         }
