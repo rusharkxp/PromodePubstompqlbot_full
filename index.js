@@ -107,7 +107,7 @@ const dessertScene = new WizardScene('desserts-scene',
                         })
                     }
                     else{
-                        ctx.reply('Вводите правильно')
+                        ctx.reply('Вводите правильно!')
                     }
                 }else{
                     const id = ctx.hasOwnProperty('chat') ? ctx.chat.id : ctx.from.id
@@ -130,7 +130,7 @@ const dessertScene = new WizardScene('desserts-scene',
                             return ctx.scene.leave()
                         })
                     }else{
-                        ctx.reply('Вводите правильно')
+                        ctx.reply('Вводите правильно!')
                     }
                 }
             })
@@ -343,7 +343,7 @@ const pizzaScene = new WizardScene('pizza-scene',
                                 return ctx.scene.leave()
                             })
                         }else{
-                            ctx.reply('Вводите правильно')
+                            ctx.reply('Вводите правильно!')
                         }
                     }
                 })
@@ -523,7 +523,7 @@ const drinksScene = new WizardScene('drinks-scene',
                                 })
                             }
                             else{
-                                ctx.reply('Вводите правильно')
+                                ctx.reply('Вводите правильно!')
                             }
                         }else{
                             const price = helper.getPrice(order_name) * counter
@@ -545,7 +545,7 @@ const drinksScene = new WizardScene('drinks-scene',
                                     return ctx.scene.leave()
                                 })
                             }else{
-                                ctx.reply('Вводите правильно')
+                                ctx.reply('Вводите правильно!')
                             }
                         }
                     })
@@ -681,7 +681,7 @@ const drinksScene = new WizardScene('drinks-scene',
                                 })
                             }
                             else{
-                                ctx.reply('Вводите правильно')
+                                ctx.reply('Вводите правильно!')
                             }
                         }else{
                             const price = helper.getPrice(name, amount) * counter
@@ -704,7 +704,7 @@ const drinksScene = new WizardScene('drinks-scene',
                                     return ctx.scene.leave()
                                 })
                             }else{
-                                ctx.reply('Вводите правильно')
+                                ctx.reply('Вводите правильно!')
                             }
                         }
                     })
@@ -752,7 +752,7 @@ const drinksScene = new WizardScene('drinks-scene',
                                 })
                             }
                             else{
-                                ctx.reply('Вводите правильно')
+                                ctx.reply('Вводите правильно!')
                             }
                         }else{
                             const price = helper.getPrice(orderName) * counter
@@ -775,7 +775,7 @@ const drinksScene = new WizardScene('drinks-scene',
                                 })
                             }
                             else{
-                                ctx.reply('Вводите правильно')
+                                ctx.reply('Вводите правильно!')
                             }
                         }
                     })
