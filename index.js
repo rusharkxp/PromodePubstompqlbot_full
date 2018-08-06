@@ -548,7 +548,7 @@ const drinksScene = new WizardScene('drinks-scene',
                 ctx.wizard.back()
             }else {
                 const amount = ctx.update.message.text
-            if(amount === keyboard.counter_drinks._350ml ||amount === keyboard.counter_drinks._500ml ||amount === keyboard.counter_drinks._1000ml ||amount === keyboard.counter_drinks._1500ml ) {
+            if(amount === keyboard.counter_drinks._350ml.name ||amount === keyboard.counter_drinks._500ml.name ||amount === keyboard.counter_drinks._1000ml.name ||amount === keyboard.counter_drinks._1500ml.name ) {
                 const price = helper.getPrice(name, amount)
                 ctx.scene.session.state = {
                     amount: amount,
