@@ -46,7 +46,7 @@ module.exports = {
             price: 10000
         },
         eklerchiki:{
-            name:'Эклерчики',
+            name:'Эклерчики с лимоном и шоколадом',
             price:10000
         }
     },
