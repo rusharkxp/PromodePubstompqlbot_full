@@ -548,6 +548,7 @@ const drinksScene = new WizardScene('drinks-scene',
                 ctx.wizard.back()
             }else {
                 const amount = ctx.update.message.text
+            if(amount === keyboard.counter_drinks._350ml ||amount === keyboard.counter_drinks._500ml ||amount === keyboard.counter_drinks._1000ml ||amount === keyboard.counter_drinks._1500ml ) {
                 const price = helper.getPrice(name, amount)
                 ctx.scene.session.state = {
                     amount: amount,
@@ -562,6 +563,9 @@ const drinksScene = new WizardScene('drinks-scene',
                 if (amount !== '') {
                     return ctx.wizard.next()
                 }
+            }else{
+                    ctx.reply('Вводите правильно!')
+            }
             }
 
 
