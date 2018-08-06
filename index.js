@@ -1295,7 +1295,6 @@ bot.hears(keyboard.main_menuPage.basket,ctx => {
     ctx.scene.enter('take-order')
 })
 bot.hears(/\/start/,(ctx) => {
-    console.log('1')
 
     const telegramID = ctx.message.hasOwnProperty('chat') ? ctx.message.chat.id : ctx.message.from.id
     const user = new User({
@@ -1318,5 +1317,9 @@ bot.hears(/\/start/,(ctx) => {
             }))
         }
     }).catch(error => ctx.reply(`Что-то пошло не так\n${error}`))
-})
+})w
+const port = process.env.PORT || 3000;
+app.listen(port, "0.0.0.0", function() {
+    console.log("Listening on Port "+port);
+});
 bot.startPolling()
