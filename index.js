@@ -252,6 +252,10 @@ const pizzaScene = new WizardScene('pizza-scene',
                     }))
                     return ctx.wizard.back()
                 break
+            case keyboard.main_menuPage.basket:
+                ctx.scene.leave()
+                ctx.scene.enter('take-order')
+                break
         }
     },
     (ctx) =>{
@@ -919,7 +923,7 @@ const takeOrderScene = new WizardScene('take-order',
                 }else {
                     Order.find({id:ctx.update.message.from.id}).then((o) =>{
                         let buttons =[]
-                        buttons.length = 11
+                        buttons.length = 65
                         for (let i = 0; i < buttons.length; i++) {
                             buttons[i] = ''
                         }
@@ -940,8 +944,35 @@ const takeOrderScene = new WizardScene('take-order',
                                 [buttons[4],buttons[5]],
                                 [buttons[6],buttons[7]],
                                 [buttons[8],buttons[9]],
-                                [buttons[10]],
-                                [keyboard.basketPage.take_an_order,keyboard.back]
+                                [buttons[10],buttons[11]],
+                                [buttons[12],buttons[13]],
+                                [buttons[14],buttons[15]],
+                                [buttons[16],buttons[17]],
+                                [buttons[18],buttons[19]],
+                                [buttons[20],buttons[21]],
+                                [buttons[22],buttons[23]],
+                                [buttons[24],buttons[25]],
+                                [buttons[26],buttons[27]],
+                                [buttons[28],buttons[29]],
+                                [buttons[30],buttons[31]],
+                                [buttons[32],buttons[33]],
+                                [buttons[34],buttons[35]],
+                                [buttons[36],buttons[37]],
+                                [buttons[38],buttons[39]],
+                                [buttons[40],buttons[41]],
+                                [buttons[42],buttons[43]],
+                                [buttons[44],buttons[45]],
+                                [buttons[46],buttons[47]],
+                                [buttons[48],buttons[49]],
+                                [buttons[50],buttons[51]],
+                                [buttons[52],buttons[53]],
+                                [buttons[54],buttons[55]],
+                                [buttons[56],buttons[57]],
+                                [buttons[58],buttons[59]],
+                                [buttons[60],buttons[61]],
+                                [buttons[62],buttons[63]],
+                                [buttons[64]],
+                                [keyboard.back,keyboard.basketPage.take_an_order]
 
                             ])
                         }))
