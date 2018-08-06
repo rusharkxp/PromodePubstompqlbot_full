@@ -499,6 +499,7 @@ const drinksScene = new WizardScene('drinks-scene',
                     const id = ctx.hasOwnProperty('chat') ? ctx.chat.id : ctx.from.id
                     Order.find({id:id,name:order_name}).then((o) =>{
                         if(o.length !== 0){
+                            console.log()
                             const count = o.map((c) =>{
                                 return `${c.count}`
                             })
@@ -520,14 +521,14 @@ const drinksScene = new WizardScene('drinks-scene',
                                         markup.resize()
                                         return markup.keyboard(kb.drinks_fresh)
                                     }))
-                                    ctx.scene.leave()
-                                    ctx.scene.enter('drinks-scene',1)
+                                    ctx.wizard.back()
                                 })
                             }
                             else{
                                 ctx.reply('Вводите правильно!')
                             }
                         }else{
+
                             const price = helper.getPrice(order_name) * counter
                             const dividedPrice = price / counter
                             const basket = `<b>${order_name}</b>\n${counter} x ${dividedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум'} = ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум'}\n\n`
@@ -544,8 +545,9 @@ const drinksScene = new WizardScene('drinks-scene',
                                         markup.resize()
                                         return markup.keyboard(kb.drinks_fresh)
                                     }))
-                                    ctx.scene.leave()
-                                    ctx.scene.enter('drinks-scene',1)
+
+                                    ctx.wizard.back()
+
                                 })
                             }else{
                                 ctx.reply('Вводите правильно!')
@@ -702,9 +704,10 @@ const drinksScene = new WizardScene('drinks-scene',
                                 order.save().then(() => {
                                     ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
                                         markup.resize()
-                                        return markup.keyboard(kb.main_menu)
+                                        return markup.keyboard(kb.drinks_fresh)
                                     }))
-                                    return ctx.scene.leave()
+                                    ctx.wizard.back()
+                                    ctx.wizard.back()
                                 })
                             }else{
                                 ctx.reply('Вводите правильно!')
@@ -746,13 +749,27 @@ const drinksScene = new WizardScene('drinks-scene',
                                     count: counter,
                                     basket: basket
                                 })
-                                order.save().then(() => {
+                                if(orderName === keyboard.drinksPage.coffee.cold.bumble.name || orderName === keyboard.drinksPage.coffee.cold.ice_latte.name) {
+
+                                    order.save().then(() => {
                                     ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
                                         markup.resize()
-                                        return markup.keyboard(kb.main_menu)
+                                        return markup.keyboard(kb.drinks_cold)
                                     }))
-                                    return ctx.scene.leave()
+                                        ctx.wizard.back()
+
                                 })
+                            }else{
+                                    order.save().then(() => {
+                                        ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
+                                            markup.resize()
+                                            return markup.keyboard(kb.drinks_hot)
+                                        }))
+
+                                    })
+                                    ctx.wizard.back()
+                                }
+
                             }
                             else{
                                 ctx.reply('Вводите правильно!')
@@ -769,13 +786,26 @@ const drinksScene = new WizardScene('drinks-scene',
                                     count: counter,
                                     basket: basket
                                 })
-                                order.save().then(() => {
-                                    ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
-                                        markup.resize()
-                                        return markup.keyboard(kb.main_menu)
-                                    }))
-                                    return ctx.scene.leave()
-                                })
+                                if(orderName === keyboard.drinksPage.coffee.cold.bumble.name || orderName === keyboard.drinksPage.coffee.cold.ice_latte.name) {
+
+                                    order.save().then(() => {
+                                        ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
+                                            markup.resize()
+                                            return markup.keyboard(kb.drinks_cold)
+                                        }))
+                                        ctx.wizard.back()
+
+                                    })
+                                }else{
+                                    order.save().then(() => {
+                                        ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
+                                            markup.resize()
+                                            return markup.keyboard(kb.drinks_hot)
+                                        }))
+
+                                    })
+                                    ctx.wizard.back()
+                                }
                             }
                             else{
                                 ctx.reply('Вводите правильно!')
