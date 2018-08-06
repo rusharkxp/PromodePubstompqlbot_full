@@ -106,6 +106,9 @@ const dessertScene = new WizardScene('desserts-scene',
                             return ctx.scene.leave()
                         })
                     }
+                    else{
+                        ctx.reply('Вводите правильно')
+                    }
                 }else{
                     const id = ctx.hasOwnProperty('chat') ? ctx.chat.id : ctx.from.id
                     const price = helper.getPrice(ctx.scene.session.state.order_name) * counter
@@ -126,6 +129,8 @@ const dessertScene = new WizardScene('desserts-scene',
                             }))
                             return ctx.scene.leave()
                         })
+                    }else{
+                        ctx.reply('Вводите правильно')
                     }
                 }
             })
@@ -311,6 +316,8 @@ const pizzaScene = new WizardScene('pizza-scene',
                                         }))
                                         return ctx.scene.leave()
                                     })
+                                }else{
+                                    ctx.reply('Вводите правильно')
                                 }
 
 
@@ -335,6 +342,8 @@ const pizzaScene = new WizardScene('pizza-scene',
                                 }))
                                 return ctx.scene.leave()
                             })
+                        }else{
+                            ctx.reply('Вводите правильно')
                         }
                     }
                 })
@@ -513,6 +522,9 @@ const drinksScene = new WizardScene('drinks-scene',
                                     return ctx.scene.leave()
                                 })
                             }
+                            else{
+                                ctx.reply('Вводите правильно')
+                            }
                         }else{
                             const price = helper.getPrice(order_name) * counter
                             const dividedPrice = price / counter
@@ -532,6 +544,8 @@ const drinksScene = new WizardScene('drinks-scene',
                                     }))
                                     return ctx.scene.leave()
                                 })
+                            }else{
+                                ctx.reply('Вводите правильно')
                             }
                         }
                     })
@@ -666,6 +680,9 @@ const drinksScene = new WizardScene('drinks-scene',
                                     return ctx.scene.leave()
                                 })
                             }
+                            else{
+                                ctx.reply('Вводите правильно')
+                            }
                         }else{
                             const price = helper.getPrice(name, amount) * counter
                             const dividedPrice = price / counter
@@ -686,6 +703,8 @@ const drinksScene = new WizardScene('drinks-scene',
                                     }))
                                     return ctx.scene.leave()
                                 })
+                            }else{
+                                ctx.reply('Вводите правильно')
                             }
                         }
                     })
@@ -732,6 +751,9 @@ const drinksScene = new WizardScene('drinks-scene',
                                     return ctx.scene.leave()
                                 })
                             }
+                            else{
+                                ctx.reply('Вводите правильно')
+                            }
                         }else{
                             const price = helper.getPrice(orderName) * counter
                             const dividedPrice = price / counter
@@ -751,6 +773,9 @@ const drinksScene = new WizardScene('drinks-scene',
                                     }))
                                     return ctx.scene.leave()
                                 })
+                            }
+                            else{
+                                ctx.reply('Вводите правильно')
                             }
                         }
                     })
