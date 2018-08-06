@@ -276,10 +276,11 @@ const pizzaScene = new WizardScene('pizza-scene',
             }else {
 
                 const id = ctx.hasOwnProperty('chat') ? ctx.chat.id : ctx.from.id
+
                 const order_name = ctx.scene.session.state.order_name
                 const dough_height = ctx.scene.session.state.dough_height
                 const dough_size = ctx.scene.session.state.dough_size
-                Order.find({id:id,name:order_name,height:dough_height,size:dough_size}).then((o) =>{
+                Order.find({id:id,name:order_name + ` ${dough_height} ${dough_size}`,height:dough_height,size:dough_size}).then((o) =>{
                     if(o.length !== 0){
                                 const count = o.map((c) =>{
                                     return `${c.count}`
@@ -288,7 +289,7 @@ const pizzaScene = new WizardScene('pizza-scene',
                                 const price = helper.getPrice(order_name, dough_size) * counter
                                 const dividedPrice = price / counter
                                 const basket = `<b>${order_name}</b>\nТесто: ${dough_height}\nРазмер: ${dough_size}\n${counter} x ${dividedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум'} = ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум'}\n\n`
-                                Order.find({id:id,name:order_name,height:dough_height,size:dough_size}).remove().then(() => console.log('not unique'))
+                                Order.find({id:id,name:order_name + ` ${dough_height} ${dough_size}`,height:dough_height,size:dough_size}).remove().then(() => console.log('not unique'))
                                 if(price !== 0 && !isNaN(price) && counter !== 0 && !isNaN(counter)) {
                                     const order = new Order({
                                         id: id,
@@ -631,7 +632,7 @@ const drinksScene = new WizardScene('drinks-scene',
                 }else {
                     const id = ctx.hasOwnProperty('chat') ? ctx.chat.id : ctx.from.id
                     const name = ctx.scene.session.state.name
-                    Order.find({id:id,name:name}).then((o) =>{
+                    Order.find({id:id,name:name+ ' '+ amount}).then((o) =>{
                         if(o.length !== 0) {
                             const count = o.map((c) => {
                                 return `${c.count}`
@@ -640,7 +641,7 @@ const drinksScene = new WizardScene('drinks-scene',
                             const price = helper.getPrice(name, amount) * counter
                             const dividedPrice = price / counter
                             const basket = `<b>${name}</b>\nОбъем: ${amount}\n${counter} x ${dividedPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум'} = ${price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум'}\n\n`
-                            Order.find({id:id,name:name,amount:amount}).remove().then(o =>console.log('not unique'))
+                            Order.find({id:id,name:name+ ' '+ amount,amount:amount}).remove().then(o =>console.log('not unique'))
                             if(price !== 0 && !isNaN(price) && counter !== 0 && !isNaN(counter)) {
                                 const order = new Order({
                                     id: id,
