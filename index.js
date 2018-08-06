@@ -125,9 +125,9 @@ const dessertScene = new WizardScene('desserts-scene',
                         order.save().then(() => {
                             ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
                                 markup.resize()
-                                return markup.keyboard(kb.main_menu)
+                                return markup.keyboard(kb.desserts)
                             }))
-                            return ctx.scene.leave()
+                            return ctx.scene.back()
                         })
                     }else{
                         ctx.reply('Вводите правильно!')
@@ -518,9 +518,10 @@ const drinksScene = new WizardScene('drinks-scene',
                                 order.save().then(() => {
                                     ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
                                         markup.resize()
-                                        return markup.keyboard(kb.main_menu)
+                                        return markup.keyboard(kb.drinks_fresh)
                                     }))
-                                    return ctx.scene.leave()
+                                    ctx.scene.leave()
+                                ctx.scene.enter('drinks-scene',1)
                                 })
                             }
                             else{
