@@ -521,7 +521,7 @@ const drinksScene = new WizardScene('drinks-scene',
                                         return markup.keyboard(kb.drinks_fresh)
                                     }))
                                     ctx.scene.leave()
-                                ctx.scene.enter('drinks-scene',1)
+                                    ctx.scene.enter('drinks-scene',1)
                                 })
                             }
                             else{
@@ -542,9 +542,10 @@ const drinksScene = new WizardScene('drinks-scene',
                                 order.save().then(() => {
                                     ctx.reply('Успешно добавлено в корзину!\nЧто-то еще?', Extra.markup((markup) => {
                                         markup.resize()
-                                        return markup.keyboard(kb.main_menu)
+                                        return markup.keyboard(kb.drinks_fresh)
                                     }))
-                                    return ctx.scene.leave()
+                                    ctx.scene.leave()
+                                    ctx.scene.enter('drinks-scene',1)
                                 })
                             }else{
                                 ctx.reply('Вводите правильно!')
