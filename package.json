@@ -1,0 +1,22 @@
+{
+  "name": "telegraph",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.3",
+    "mongoose": "^5.2.6",
+    "telegraf": "^3.22.1",
+    "telegraf-session-local": "0.0.5",
+    "telegraf-session-mongo": "^1.1.0",
+    "telegraf-session-redis": "^5.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.3"
+  },
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC"
+}
