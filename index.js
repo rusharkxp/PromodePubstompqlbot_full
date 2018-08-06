@@ -540,8 +540,7 @@ const drinksScene = new WizardScene('drinks-scene',
             }
         }
         if(name !== ''){
-        if(ctx.update.message.text === keyboard.counter_drinks._350ml.name || ctx.update.message.text === keyboard.counter_drinks._500ml.name || ctx.update.message.text === keyboard.counter_drinks._1000ml.name || ctx.update.message.text === keyboard.counter_drinks._1500ml.name  ) {
-            if (ctx.update.message.text === keyboard.back) {
+        if (ctx.update.message.text === keyboard.back) {
                 ctx.reply('Выберите напиток:', Extra.markup((m) => {
                     m.resize()
                     return m.keyboard(kb.drinks_fresh)
@@ -564,7 +563,7 @@ const drinksScene = new WizardScene('drinks-scene',
                     return ctx.wizard.next()
                 }
             }
-        }
+
 
         }
             if(choice !== ''&& order_name === '' && name === ''){
