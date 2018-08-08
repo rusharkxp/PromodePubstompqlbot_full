@@ -1,9 +1,9 @@
 const prices = require('./keyboard-buttons')
 const mongoose = require('mongoose')
-require('./user.model')
-require('./order.model')
-const User = mongoose.model('user')
-const Order = mongoose.model('order')
+    require('./user.model')
+    require('./order.model')
+    const User = mongoose.model('user')
+    const Order = mongoose.model('order')
 
 module.exports = {
     isNewUser(id){

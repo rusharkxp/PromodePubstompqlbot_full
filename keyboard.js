@@ -12,7 +12,7 @@ main_menu:[
     ],
     dough_sizePage:[
         [kb.doughPage.size.medium,kb.doughPage.size.maximum],
-        [kb.back]
+        [kb.back,kb.mainMenu]
     ],
     pizzaPage:[
         [kb.pizzaPage.pizza_1.name,kb.pizzaPage.pizza_2.name],
@@ -21,13 +21,13 @@ main_menu:[
         [kb.pizzaPage.pizza_7.name,kb.pizzaPage.pizza_8.name],
         [kb.pizzaPage.pizza_9.name,kb.pizzaPage.pizza_6.name],
         [kb.pizzaPage.pizza_11.name],
-        [kb.back,kb.main_menuPage.basket]
+        [kb.back,kb.mainMenu,kb.main_menuPage.basket]
     ],
     counterPage:[
         [kb.counter.one,kb.counter.two,kb.counter.three],
         [kb.counter.four,kb.counter.five,kb.counter.six],
         [kb.counter.seven,kb.counter.eight,kb.counter.nine],
-        [kb.back,kb.main_menuPage.basket]
+        [kb.back,kb.mainMenu,kb.main_menuPage.basket]
     ],
     desserts:[
         [kb.dessertsPage.lemon_cake.name,kb.dessertsPage.usual_cake.name],
@@ -41,21 +41,21 @@ main_menu:[
     ],
     drinks_hot_cold:[
         [kb.drinksPage.coffee.cold.name,kb.drinksPage.coffee.hot.name],
-        [kb.back]
+        [kb.back,kb.mainMenu]
     ],
     drinks_cold:[
         [kb.drinksPage.coffee.cold.bumble.name,kb.drinksPage.coffee.cold.ice_latte.name],
-        [kb.back]
+        [kb.back,kb.mainMenu]
     ],
     drinks_hot:[
         [kb.drinksPage.coffee.hot.americano.name,kb.drinksPage.coffee.hot.latte.name],
         [kb.drinksPage.coffee.hot.capuchino.name,kb.drinksPage.coffee.hot.grand_capuchino.name],
-        [kb.back]
+        [kb.back,kb.mainMenu]
     ],
     drinks_fresh:[
       [kb.drinksPage.fresh.compot.name,kb.drinksPage.fresh.cola.name],
       [kb.drinksPage.fresh.juice.name,kb.drinksPage.fresh.water.name],
-        [kb.back]
+        [kb.back,kb.mainMenu]
     ],
     counter_drinks:[
         [kb.counter_drinks._350ml.name,kb.counter_drinks._500ml.name],

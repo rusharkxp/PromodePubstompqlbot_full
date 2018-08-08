@@ -1,7 +1,6 @@
 {
   "name": "telegraph",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "express": "^4.16.3",
@@ -18,5 +17,14 @@
     "start": "node index.js"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rusharkxp/PromodePubstompqlbot_full.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rusharkxp/PromodePubstompqlbot_full/issues"
+  },
+  "homepage": "https://github.com/rusharkxp/PromodePubstompqlbot_full#readme",
+  "description": ""
 }

@@ -1387,6 +1387,27 @@ bot.hears(keyboard.main_menuPage.pizza_btn,ctx => {
 bot.hears(keyboard.main_menuPage.basket,ctx => {
     ctx.scene.enter('take-order')
 })
+takeOrderScene.hears(keyboard.mainMenu,ctx => {
+    ctx.reply('Выберите категорию:',Extra.markup((m) =>{
+        m.resize()
+        return m.keyboard(kb.main_menu)
+    }))
+    ctx.scene.leave()
+})
+pizzaScene.hears(keyboard.mainMenu,ctx => {
+    ctx.reply('Выберите категорию:',Extra.markup((m) =>{
+        m.resize()
+        return m.keyboard(kb.main_menu)
+    }))
+    ctx.scene.leave()
+})
+drinksScene.hears(keyboard.mainMenu,ctx => {
+    ctx.reply('Выберите категорию:',Extra.markup((m) =>{
+        m.resize()
+        return m.keyboard(kb.main_menu)
+    }))
+    ctx.scene.leave()
+})
 bot.hears(/\/start/,(ctx) => {
 
     const telegramID = ctx.message.hasOwnProperty('chat') ? ctx.message.chat.id : ctx.message.from.id
@@ -1415,4 +1436,5 @@ const port = process.env.PORT || 3000;
 app.listen(port, "0.0.0.0", function() {
     console.log("Listening on Port "+port);
 });
+
 bot.startPolling()
