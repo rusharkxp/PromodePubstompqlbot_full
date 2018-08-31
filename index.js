@@ -1387,6 +1387,13 @@ bot.hears(keyboard.main_menuPage.pizza_btn,ctx => {
 bot.hears(keyboard.main_menuPage.basket,ctx => {
     ctx.scene.enter('take-order')
 })
+dessertScene.hears(keyboard.mainMenu,ctx => {
+    ctx.reply('Выберите категорию:',Extra.markup((m) =>{
+        m.resize()
+        return m.keyboard(kb.main_menu)
+    }))
+    ctx.scene.leave()
+})
 takeOrderScene.hears(keyboard.mainMenu,ctx => {
     ctx.reply('Выберите категорию:',Extra.markup((m) =>{
         m.resize()
