@@ -1061,7 +1061,7 @@ const takeOrderScene = new WizardScene('take-order',
 
             if(ctx.update.message.hasOwnProperty('location')){
                 id++
-                bot.telegram.sendMessage(-1001309044485, `Заказ №${id} ( @${ctx.update.message.from.username} )\n+${phone}\n\n` + `https://yandex.ru/maps/10335/tashkent/?ll=69.264021%2C41.280466&z=19&rtext=41.279797%2C69.262203~${ctx.update.message.location.latitude}%2C${ctx.update.message.location.longitude}&rtt=auto&mode=routes\n-----------------------\n\n` + basket + 'Итого: ' + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум', {
+                bot.telegram.sendMessage(-1001309044485, `Заказ №${id} ( @${ctx.update.message.from.hasOwnProperty('username') ? '@' + ctx.update.message.from.username : ctx.update.message.from.first_name} )\n+${phone}\n\n` + `https://yandex.ru/maps/10335/tashkent/?ll=69.264021%2C41.280466&z=19&rtext=41.279797%2C69.262203~${ctx.update.message.location.latitude}%2C${ctx.update.message.location.longitude}&rtt=auto&mode=routes\n-----------------------\n\n` + basket + 'Итого: ' + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум', {
                     disable_web_page_preview: true,
                     parse_mode:'HTML'
                 })
@@ -1077,7 +1077,7 @@ const takeOrderScene = new WizardScene('take-order',
                 if(location.length < 4){
                     ctx.reply('Введите корректный адрес:')
                 }else {
-                    bot.telegram.sendMessage(-1001309044485, `Заказ №${id} ( @${ctx.update.message.from.username} )\n+${phone}\n\n` + `${location}\n-----------------------\n\n` + basket + 'Итого: ' + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум', {
+                    bot.telegram.sendMessage(-1001309044485, `Заказ №${id} ( @${ctx.update.message.from.hasOwnProperty('username') ? '@' + ctx.update.message.from.username : ctx.update.message.from.first_name} )\n+${phone}\n\n` + `${location}\n-----------------------\n\n` + basket + 'Итого: ' + price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".") + ' сум', {
                         disable_web_page_preview: true,
                         parse_mode: 'HTML'
                     })
