@@ -3,7 +3,8 @@ const Markup = require('telegraf/markup')
 const Extra = require('telegraf/extra')
 const express = require('express')
 const app = express()
-
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 const Session = require('telegraf/session')
 const Stage = require('telegraf/stage')
 const kb = require('./keyboard')
@@ -14,8 +15,7 @@ const WizardScene = require('telegraf/scenes/wizard')
 
 let id = 0
 const bot = new Telegraf(helper.getToken())
-app.use(bot.webhookCallback('/bot'))
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot')
+
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://Shark:ruslan2002@ds161751.mlab.com:61751/mydb',{
     useNewUrlParser:true
