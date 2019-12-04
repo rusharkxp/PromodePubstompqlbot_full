@@ -3,8 +3,7 @@ const Markup = require('telegraf/markup')
 const Extra = require('telegraf/extra')
 const express = require('express')
 const app = express()
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+
 const Session = require('telegraf/session')
 const Stage = require('telegraf/stage')
 const kb = require('./keyboard')
@@ -2006,7 +2005,8 @@ bot.hears(keyboard.main_menuPage.all_menus_btn,ctx => {
         ])
     }))
 })
-
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 const stage = new Stage([dessertScene,pizzaScene,drinksScene,takeOrderScene,panelScene],{default_scene:''})
 bot.use(Session())
 takeOrderScene.hears(/❌ (.+)/,ctx =>{
