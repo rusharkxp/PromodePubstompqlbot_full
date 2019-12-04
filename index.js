@@ -2005,8 +2005,6 @@ bot.hears(keyboard.main_menuPage.all_menus_btn,ctx => {
         ])
     }))
 })
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 const stage = new Stage([dessertScene,pizzaScene,drinksScene,takeOrderScene,panelScene],{default_scene:''})
 bot.use(Session())
 takeOrderScene.hears(/❌ (.+)/,ctx =>{
@@ -2188,6 +2186,9 @@ takeOrderScene.hears(/❌ (.+)/,ctx =>{
 })
 
 bot.use(stage.middleware())
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+
 bot.hears(keyboard.main_menuPage.fast_food,ctx => {
     ctx.reply('Выберите еду:',Extra.markup((m) =>{
         m.resize()
