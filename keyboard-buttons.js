@@ -1,10 +1,27 @@
 module.exports = {
     main_menuPage:{
-        all_menus_btn:'📋Всё меню',
+        all_menus_btn:'📱Социальные сети',
         pizza_btn:'🍕Пицца',
         drinks:'🍸Напитки',
-        desserts:'🍧Десерты',
+        fast_food:'🍗Фаст-фуд',
         basket:'🛒 Корзина'
+    },
+    main_menuPage_Secret:{
+        all_menus_btn:'📱Социальные сети',
+        pizza_btn:'🍕Пицца',
+        drinks:'🍸Напитки',
+        fast_food:'🍗Фаст-фуд',
+        basket:'🛒 Корзина',
+        adminPanel:"🔐 Панель администратора"
+    },
+    adminPanelPage:{
+      sendToAll:'✉️ Отправить всем',
+      deleteUser:'❌ Удалить администратора',
+      addUser:'💾 Добавить администратора',
+      admins:'⏬ Показать администраторов'
+    },
+    shares:{
+      create:'🎁 Поставить скидку на товар:'
     },
     doughPage:{
       height:{
@@ -13,7 +30,7 @@ module.exports = {
       },
       size:{
         medium:'30 см',
-        maximum:'38 см'
+        maximum:'35 см'
       }
     },
     basketPage:{
@@ -28,26 +45,26 @@ module.exports = {
         location:'Отправить локацию'
       }
     },
-    dessertsPage:{
-        lemon_cake:{
-            name:'Лимонный тарт',
-            price: 10000
+    fast_foodPage:{
+        hamburger:{
+            name:'🍔Бургер',
+            price: 14000
         },
-        usual_cake:{
-            name:'Яблочный штрудель',
-            price: 10000
+        cheese_burger:{
+            name:'🍔Чизбургер',
+            price: 16000
         },
-        nut_cake:{
-            name:'Ореховый тарт',
-            price: 10000
+        subway_sandwich:{
+            name:'🥪Subway сэндвич',
+            price: 12000
         },
-        honey_cake:{
-            name:'Яблочный тарт',
-            price: 10000
+        club_sandwich:{
+            name:'🥪Club сэндвич',
+            price: 17000
         },
-        eklerchiki:{
-            name:'Эклерчики',
-            price:10000
+        fries_potatoes:{
+            name:'🍟Фри',
+            price: 10000
         }
     },
     drinksPage:{
@@ -71,117 +88,153 @@ module.exports = {
                   name:'Латте',
                   price:10500
               }
-          },
-          cold:{
-              name:'Холодный',
-              ice_latte:{
-                  name:'Айс-латте',
-                  price:2000
-              },
-              bumble:{
-                  name:'Бамбл',
-                  price:2000
-              }
           }
       },
       fresh:{
           name:'Освежающие',
-          compot:{
-              name:'Компот',
-              price:3000
+          fanta:{
+              name:'Фанта 1.5L',
+              price:8000
           },
           cola:{
-              name:'Кола',
-              price:7000
+              name:'Кола 1.5L',
+              price:8000
           },
           juice:{
-              name:'Сок',
-              price:5000
+              name:'Сок 1L',
+              price:7000
           },
           water:{
-              name:'Вода',
+              name:'Вода 1.5L',
               price:2000
+          },
+          sprite:{
+              name:'Спрайт 1.5L',
+              price:8000
           }
 
-      }
-    },
-    counter_drinks:{
-        _350ml:{
-            name:'350 мл',
-            cola_price:5000,
-            compot_price:2000
-        },
-        _500ml:{
-            name:'500 мл',
-            cola_price:6000,
-            compot_price:3000
-        },
-        _1000ml:{
-            name:'1000 мл',
-            cola_price:7000,
-            compot_price:4000
-        },
-        _1500ml:{
-            name:'1500 мл',
-            cola_price:8000,
-            compot_price:5000
+      },
+        energize:{
+          name:'Энергетики',
+          eighteen_plus:{
+              name:'18+',
+              price:6500
+          },
+            flash:{
+                name:'Flash',
+                price:7500
+            },
+            red_bull:{
+                name:'Red Bull',
+                price:8000
+            },
         }
     },
     pizzaPage:{
         pizza_1:{
-            name:'Маргарита',
-            price:32000,
-            price_maximum:40000
+            name:'🍕Маргарита',
+            price:30000,
+            price_maximum:39500
         },
         pizza_2:{
-            name:'Пеперони',
-            price:39000,
-            price_maximum:65000
+            name:'🍕Пеперони',
+            price:38000,
+            price_maximum:50000
         },
         pizza_3:{
-            name:'Доминиканская',
-            price:39000,
-            price_maximum:65000
+            name:'🍕Доминиканская',
+            price:34500,
+            price_maximum:50000
         },
         pizza_4:{
-            name:'BBQ Beef',
-            price:43000,
-            price_maximum:68000
+            name:'🍕Барбекю Биф',
+            price:43500,
+            price_maximum:58000
         },
         pizza_5:{
-            name:'BBQ Chicken',
-            price:41000,
-            price_maximum:66000
+            name:'🍕Барбекю Чикен',
+            price:38000,
+            price_maximum:50000
         },
         pizza_6:{
-            name:'Special',
-            price:41000,
-            price_maximum:66000
+            name:'🍕От Шефа',
+            price:43000,
+            price_maximum:58000
         },
         pizza_7:{
-            name:'Охотничья',
+            name:'🍕Охотничья',
             price:43000,
-            price_maximum:68000
+            price_maximum:58000
         },
         pizza_8:{
-            name:'Гавайская',
-            price:39000,
-            price_maximum:65000
+            name:'🍕Гавайская',
+            price:34500,
+            price_maximum:50500
         },
         pizza_9:{
-            name:'4 Сезона',
-            price:46000,
-            price_maximum:69000
+            name:'🍕4 Сезона',
+            price:39000,
+            price_maximum:55000
         },
         pizza_10:{
-            name:'Вегетарианская',
-            price:39000,
-            price_maximum:65000
+            name:'🍕Вегетариана',
+            price:35000,
+            price_maximum:50000
         },
         pizza_11:{
-            name:'Комбинированная',
-            price:39000,
-            price_maximum:65000
+            name:'🍕Комбинированная',
+            price:42000,
+            price_maximum:55000
+        },
+        pizza_12:{
+            name:'🍕Пицца с рукколой',
+            price:30000,
+            price_maximum:50000
+        },
+        pizza_13:{
+            name:'🍕4 Сыра',
+            price:44000,
+            price_maximum:55000
+        },
+        pizza_14:{
+            name:'🍕Делишес',
+            price:45000,
+            price_maximum:55900
+        },
+        pizza_15:{
+            name:'🍕Пикантино',
+            price:34500,
+            price_maximum:50000
+        },
+        pizza_16:{
+            name:'🍕Чиз пицца',
+            price:30000,
+            price_maximum:39500
+        },
+        pizza_17:{
+            name:'🍕Цезарь пицца',
+            price:44000,
+            price_maximum:56000
+        },
+        pizza_18:{
+            name:'🍕Шокопицца',
+            price:35000,
+            price_maximum:50000
+        },
+        pizza_19:{
+            name:'🍕Дабл пепперони',
+            price:38000,
+            price_maximum:55000
+        },
+        pizza_20:{
+            name:'🍕Грибная пицца',
+            price:35000,
+            price_maximum:50000
+        },
+        pizza_21:{
+            name:'🍕Чиполлино',
+            price:30000,
+            price_maximum:39000
         }
     },
     counter:{

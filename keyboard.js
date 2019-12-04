@@ -3,12 +3,32 @@ const kb = require('./keyboard-buttons')
 module.exports = {
 main_menu:[
     [kb.main_menuPage.all_menus_btn,kb.main_menuPage.pizza_btn],
-    [kb.main_menuPage.drinks,kb.main_menuPage.desserts],
+    [kb.main_menuPage.drinks,kb.main_menuPage.fast_food],
     [kb.main_menuPage.basket]
 ],
+    main_menuSecret:[
+    [kb.main_menuPage.all_menus_btn,kb.main_menuPage.pizza_btn],
+    [kb.main_menuPage.drinks,kb.main_menuPage.fast_food],
+    [kb.main_menuPage.basket,kb.main_menuPage_Secret.adminPanel]
+],
+    adminFunc:[
+      [kb.adminPanelPage.sendToAll],
+      [kb.adminPanelPage.addUser,kb.adminPanelPage.deleteUser],
+      [kb.adminPanelPage.admins],
+      [kb.back]
+    ],
+    sharesPage:[
+        [kb.shares.create],
+        [kb.back]
+    ],
     dough_heightPage:[
     [kb.doughPage.height.subtle,kb.doughPage.height.fat],
     [kb.back]
+    ],
+    energize_page:[
+      [kb.drinksPage.energize.eighteen_plus.name,kb.drinksPage.energize.flash.name],
+      [kb.drinksPage.energize.red_bull.name],
+       [kb.back,kb.mainMenu]
     ],
     dough_sizePage:[
         [kb.doughPage.size.medium,kb.doughPage.size.maximum],
@@ -20,7 +40,12 @@ main_menu:[
         [kb.pizzaPage.pizza_5.name,kb.pizzaPage.pizza_4.name],
         [kb.pizzaPage.pizza_7.name,kb.pizzaPage.pizza_8.name],
         [kb.pizzaPage.pizza_9.name,kb.pizzaPage.pizza_6.name],
-        [kb.pizzaPage.pizza_11.name],
+        [kb.pizzaPage.pizza_11.name,kb.pizzaPage.pizza_12.name],
+        [kb.pizzaPage.pizza_13.name,kb.pizzaPage.pizza_14.name],
+        [kb.pizzaPage.pizza_15.name,kb.pizzaPage.pizza_16.name],
+        [kb.pizzaPage.pizza_17.name,kb.pizzaPage.pizza_18.name],
+        [kb.pizzaPage.pizza_19.name,kb.pizzaPage.pizza_20.name],
+        [kb.pizzaPage.pizza_21.name],
         [kb.back,kb.mainMenu,kb.main_menuPage.basket]
     ],
     counterPage:[
@@ -29,23 +54,16 @@ main_menu:[
         [kb.counter.seven,kb.counter.eight,kb.counter.nine],
         [kb.back,kb.mainMenu,kb.main_menuPage.basket]
     ],
-    desserts:[
-        [kb.dessertsPage.lemon_cake.name,kb.dessertsPage.usual_cake.name],
-        [kb.dessertsPage.nut_cake.name,kb.dessertsPage.honey_cake.name],
-        [kb.dessertsPage.eklerchiki.name],
+    fast_food:[
+        [kb.fast_foodPage.hamburger.name,kb.fast_foodPage.subway_sandwich.name],
+        [kb.fast_foodPage.cheese_burger.name,kb.fast_foodPage.club_sandwich.name],
+        [kb.fast_foodPage.fries_potatoes.name],
         [kb.back]
     ],
     drinks:[
         [kb.drinksPage.fresh.name,kb.drinksPage.coffee.name],
+        [kb.drinksPage.energize.name],
         [kb.back]
-    ],
-    drinks_hot_cold:[
-        [kb.drinksPage.coffee.cold.name,kb.drinksPage.coffee.hot.name],
-        [kb.back,kb.mainMenu]
-    ],
-    drinks_cold:[
-        [kb.drinksPage.coffee.cold.bumble.name,kb.drinksPage.coffee.cold.ice_latte.name],
-        [kb.back,kb.mainMenu]
     ],
     drinks_hot:[
         [kb.drinksPage.coffee.hot.americano.name,kb.drinksPage.coffee.hot.latte.name],
@@ -53,14 +71,10 @@ main_menu:[
         [kb.back,kb.mainMenu]
     ],
     drinks_fresh:[
-      [kb.drinksPage.fresh.compot.name,kb.drinksPage.fresh.cola.name],
-      [kb.drinksPage.fresh.juice.name,kb.drinksPage.fresh.water.name],
+      [kb.drinksPage.fresh.cola.name,kb.drinksPage.fresh.fanta.name],
+      [kb.drinksPage.fresh.sprite.name,kb.drinksPage.fresh.water.name],
+       [kb.drinksPage.fresh.juice.name],
         [kb.back,kb.mainMenu]
-    ],
-    counter_drinks:[
-        [kb.counter_drinks._350ml.name,kb.counter_drinks._500ml.name],
-        [kb.counter_drinks._1000ml.name,kb.counter_drinks._1500ml.name],
-        [kb.back]
     ],
     first:[
         [{text:kb.takePage.first.phone,request_contact:true}],

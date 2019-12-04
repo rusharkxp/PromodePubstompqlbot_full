@@ -1,21 +1,20 @@
 const mongoose = require('mongoose')
-
 const Schema = mongoose.Schema
 
-const userSchema = new Schema({
+const feedSchema = new Schema({
     id:{
         type:Number,
         required:true
     },
-    isAdmin:{
-        type: Boolean,
+    message:{
+        type:String,
+        required: true
+    },
+    isTook:{
+        type:Boolean,
         required:true,
         default:false
-    },
-    username:{
-        type: String,
-        required:true
     }
 })
 
-mongoose.model('user',userSchema)
+mongoose.model('feed',feedSchema)
