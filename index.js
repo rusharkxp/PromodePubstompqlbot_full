@@ -26,6 +26,7 @@ require('./feed.model')
 const Feed = mongoose.model('feed')
 const User = mongoose.model('user')
 const Order = mongoose.model('order')
+bot.telegram.deleteWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 const panelScene = new WizardScene('adminScene',
     (ctx) =>{
