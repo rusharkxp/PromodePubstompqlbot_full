@@ -26,8 +26,6 @@ require('./feed.model')
 const Feed = mongoose.model('feed')
 const User = mongoose.model('user')
 const Order = mongoose.model('order')
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.deleteWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 const panelScene = new WizardScene('adminScene',
     (ctx) =>{
@@ -2332,3 +2330,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
   })
+bot.startPolling();
