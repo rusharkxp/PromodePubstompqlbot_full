@@ -1,5 +1,5 @@
 ﻿const Telegraf = require('telegraf')
-
+const helper = require('./helper')
 const express = require('express')
 const app = express()
 const bot = new Telegraf(helper.getToken())
@@ -11,7 +11,7 @@ const Stage = require('telegraf/stage')
 const kb = require('./keyboard')
 const mongoose = require('mongoose')
 const keyboard = require('./keyboard-buttons')
-const helper = require('./helper')
+
 const WizardScene = require('telegraf/scenes/wizard')
 
 let id = 0
