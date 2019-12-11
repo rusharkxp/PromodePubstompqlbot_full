@@ -1,9 +1,11 @@
 ﻿const Telegraf = require('telegraf')
-const Markup = require('telegraf/markup')
-const Extra = require('telegraf/extra')
+
 const express = require('express')
 const app = express()
-
+const bot = new Telegraf(helper.getToken())
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+const Extra = require('telegraf/extra')
 const Session = require('telegraf/session')
 const Stage = require('telegraf/stage')
 const kb = require('./keyboard')
@@ -13,9 +15,6 @@ const helper = require('./helper')
 const WizardScene = require('telegraf/scenes/wizard')
 
 let id = 0
-const bot = new Telegraf(helper.getToken())
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://Shark:ruslan2002@ds161751.mlab.com:61751/mydb',{
@@ -26,9 +25,6 @@ mongoose.connect('mongodb://Shark:ruslan2002@ds161751.mlab.com:61751/mydb',{
 require('./user.model')
 require('./order.model')
 require('./feed.model')
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
-
 const Feed = mongoose.model('feed')
 const User = mongoose.model('user')
 const Order = mongoose.model('order')
@@ -2000,12 +1996,7 @@ bot.hears(keyboard.main_menuPage.all_menus_btn,ctx => {
     }))
 })
 const stage = new Stage([dessertScene,pizzaScene,drinksScene,takeOrderScene,panelScene],{default_scene:''})
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 bot.use(Session())
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
-
 takeOrderScene.hears(/❌ (.+)/,ctx =>{
     helper.getDoughHeight(ctx.from.id,ctx.match[0].substring(2,ctx.match[0].length)).then((dough_height) =>{
         helper.getDoughSize(ctx.from.id,ctx.match[0].substring(2,ctx.match[0].length)).then((dough_size) =>{
@@ -2329,8 +2320,6 @@ bot.hears(/\/start/,(ctx) => {
         }
     }).catch(error => ctx.reply(`Что-то пошло не так\n${error}`))
 })
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
     res.send('Hello World!')
