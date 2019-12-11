@@ -14,6 +14,8 @@ const WizardScene = require('telegraf/scenes/wizard')
 
 let id = 0
 const bot = new Telegraf(helper.getToken())
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 mongoose.Promise = global.Promise
 mongoose.connect('mongodb://Shark:ruslan2002@ds161751.mlab.com:61751/mydb',{
@@ -24,6 +26,9 @@ mongoose.connect('mongodb://Shark:ruslan2002@ds161751.mlab.com:61751/mydb',{
 require('./user.model')
 require('./order.model')
 require('./feed.model')
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+
 const Feed = mongoose.model('feed')
 const User = mongoose.model('user')
 const Order = mongoose.model('order')
@@ -726,17 +731,6 @@ const panelScene = new WizardScene('adminScene',
         }
     }
 
-    )
-const sharesScene = new WizardScene('createShares',
-    (ctx) =>{
-        ctx.reply('Выберите товар:',Extra.markup((m) =>{
-            m.resize()
-            return m.keyboard()
-        }))
-    },
-    (ctx) =>{
-
-    }
     )
 const dessertScene = new WizardScene('desserts-scene',
     (ctx) =>{
@@ -2006,7 +2000,12 @@ bot.hears(keyboard.main_menuPage.all_menus_btn,ctx => {
     }))
 })
 const stage = new Stage([dessertScene,pizzaScene,drinksScene,takeOrderScene,panelScene],{default_scene:''})
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 bot.use(Session())
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+
 takeOrderScene.hears(/❌ (.+)/,ctx =>{
     helper.getDoughHeight(ctx.from.id,ctx.match[0].substring(2,ctx.match[0].length)).then((dough_height) =>{
         helper.getDoughSize(ctx.from.id,ctx.match[0].substring(2,ctx.match[0].length)).then((dough_size) =>{
@@ -2184,8 +2183,12 @@ takeOrderScene.hears(/❌ (.+)/,ctx =>{
     })
 
 })
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 bot.use(stage.middleware())
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 bot.hears(keyboard.main_menuPage.fast_food,ctx => {
     ctx.reply('Выберите еду:',Extra.markup((m) =>{
@@ -2292,8 +2295,6 @@ dessertScene.hears(keyboard.mainMenu,ctx => {
         }
     })
 })
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 bot.hears(/\/start/,(ctx) => {
     const telegramID = ctx.message.hasOwnProperty('chat') ? ctx.message.chat.id : ctx.message.from.id
     const user = new User({
@@ -2328,9 +2329,8 @@ bot.hears(/\/start/,(ctx) => {
         }
     }).catch(error => ctx.reply(`Что-то пошло не так\n${error}`))
 })
-//bot.command('/get',ctx =>{
-  //  ctx.reply(ctx.update.message.from.id)
-//})
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
     res.send('Hello World!')
