@@ -38,6 +38,7 @@ bot.hears(/\/start/,(ctx) => {
     })
     const isNew = helper.isNewUser(telegramID).then(p =>{
         if(p){
+            console.log('there');
             user.save().then(() =>{
                 return ctx.reply(`Добро пожаловать в наш бот!`,Extra.markup((markup) =>{
                     return markup.resize()
@@ -47,6 +48,7 @@ bot.hears(/\/start/,(ctx) => {
             }).catch(err => ctr.reply('Что то не то'));
         }
         if(!p){
+            console.log('here');
             User.find({id:telegramID,isAdmin:true}).then((u) =>{
                 if(u.length !== 0){
                     return ctx.reply(`Добро пожаловать в наш бот!`, Extra.markup((markup) => {
@@ -60,7 +62,9 @@ bot.hears(/\/start/,(ctx) => {
                     })).catch(err => ctr.reply('Что то не то'));
                 }
             })
+
         }
+       
     }).catch(error => ctx.reply(`Что-то пошло не так\n${error}`))
 })
 
