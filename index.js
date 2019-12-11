@@ -58,9 +58,9 @@ bot.hears(/\/start/,(ctx) => {
                     })).catch(err => ctx.reply('Что то не то'));
                 }else{
                     
-                    return ctx.reply(`Добро пожаловать в наш бот!`,Extra.markup((markup) =>{
-                        return markup.resize()
-                                 .keyboard(kb.main_menu)
+                    ctx.reply(`Добро пожаловать в наш бот!`,Extra.markup((markup) =>{
+                        markup.resize()
+                        return markup.keyboard(kb.main_menu)
                     })).catch(err => ctx.reply('Что то не то'));
                 }
             })
