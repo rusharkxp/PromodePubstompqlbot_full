@@ -44,7 +44,7 @@ bot.hears(/\/start/,(ctx) => {
                         .keyboard(kb.main_menu)
                 }))
 
-            })
+            }).catch(err => ctr.reply('Что то не то'));
         }
         if(!p){
             User.find({id:telegramID,isAdmin:true}).then((u) =>{
@@ -52,12 +52,12 @@ bot.hears(/\/start/,(ctx) => {
                     ctx.reply(`Добро пожаловать в наш бот!`, Extra.markup((markup) => {
                         markup.resize()
                         return markup.keyboard(kb.main_menuSecret)
-                    }))
+                    })).catch(err => ctr.reply('Что то не то'));
                 }else{
                     ctx.reply(`Добро пожаловать в наш бот!`,Extra.markup((markup) =>{
                         markup.resize()
                         return markup.keyboard(kb.main_menu)
-                    }))
+                    })).catch(err => ctr.reply('Что то не то'));
                 }
             })
         }
