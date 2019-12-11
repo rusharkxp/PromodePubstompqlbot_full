@@ -2186,8 +2186,6 @@ takeOrderScene.hears(/❌ (.+)/,ctx =>{
 })
 
 bot.use(stage.middleware())
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 bot.hears(keyboard.main_menuPage.fast_food,ctx => {
     ctx.reply('Выберите еду:',Extra.markup((m) =>{
@@ -2294,6 +2292,8 @@ dessertScene.hears(keyboard.mainMenu,ctx => {
         }
     })
 })
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 bot.hears(/\/start/,(ctx) => {
     const telegramID = ctx.message.hasOwnProperty('chat') ? ctx.message.chat.id : ctx.message.from.id
     const user = new User({
