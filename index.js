@@ -12,7 +12,6 @@ const mongoose = require('mongoose')
 const keyboard = require('./keyboard-buttons')
 
 const WizardScene = require('telegraf/scenes/wizard')
-
 let id = 0
 
 mongoose.Promise = global.Promise
@@ -27,6 +26,9 @@ require('./feed.model')
 const Feed = mongoose.model('feed')
 const User = mongoose.model('user')
 const Order = mongoose.model('order')
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+
 const panelScene = new WizardScene('adminScene',
     (ctx) =>{
         if(ctx.update.message.text === '/start'){
@@ -2286,8 +2288,6 @@ dessertScene.hears(keyboard.mainMenu,ctx => {
         }
     })
 })
-app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 bot.hears(/\/start/,(ctx) => {
     const telegramID = ctx.message.hasOwnProperty('chat') ? ctx.message.chat.id : ctx.message.from.id
