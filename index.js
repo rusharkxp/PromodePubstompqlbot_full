@@ -45,23 +45,23 @@ bot.hears(/\/start/,(ctx) => {
                         .keyboard(kb.main_menu)
                 }))
 
-            }).catch(err => ctr.reply('Что то не то'));
+            }).catch(err => ctx.reply('Что то не то'));
         }
         if(!p){
             
             User.find({id:telegramID,isAdmin:true}).then((u) =>{
                 if(u.length !== 0){
-                    console.log('here');
+                  
                     return ctx.reply(`Добро пожаловать в наш бот!`, Extra.markup((markup) => {
                         return markup.resize()
                         .keyboard(kb.main_menuSecret)
-                    })).catch(err => ctr.reply('Что то не то'));
+                    })).catch(err => ctx.reply('Что то не то'));
                 }else{
-                    console.log('there');
+                    
                     return ctx.reply(`Добро пожаловать в наш бот!`,Extra.markup((markup) =>{
                         return markup.resize()
                                  .keyboard(kb.main_menu)
-                    })).catch(err => ctr.reply('Что то не то'));
+                    })).catch(err => ctx.reply('Что то не то'));
                 }
             })
 
