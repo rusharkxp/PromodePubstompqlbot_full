@@ -49,14 +49,14 @@ bot.hears(/\/start/,(ctx) => {
         if(!p){
             User.find({id:telegramID,isAdmin:true}).then((u) =>{
                 if(u.length !== 0){
-                    ctx.reply(`Добро пожаловать в наш бот!`, Extra.markup((markup) => {
-                        markup.resize()
-                        return markup.keyboard(kb.main_menuSecret)
+                    return ctx.reply(`Добро пожаловать в наш бот!`, Extra.markup((markup) => {
+                        return markup.resize()
+                        .keyboard(kb.main_menuSecret)
                     })).catch(err => ctr.reply('Что то не то'));
                 }else{
-                    ctx.reply(`Добро пожаловать в наш бот!`,Extra.markup((markup) =>{
-                        markup.resize()
-                        return markup.keyboard(kb.main_menu)
+                    return ctx.reply(`Добро пожаловать в наш бот!`,Extra.markup((markup) =>{
+                        return markup.resize()
+                                 .keyboard(kb.main_menu)
                     })).catch(err => ctr.reply('Что то не то'));
                 }
             })
