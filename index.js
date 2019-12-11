@@ -3,7 +3,7 @@ const helper = require('./helper')
 const express = require('express')
 const app = express()
 const bot = new Telegraf(helper.getToken())
-app.use(bot.webhookCallback('/bot'));
+
 const Extra = require('telegraf/extra')
 const Session = require('telegraf/session')
 const Stage = require('telegraf/stage')
@@ -2286,6 +2286,9 @@ dessertScene.hears(keyboard.mainMenu,ctx => {
         }
     })
 })
+app.use(bot.webhookCallback('/bot'));
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+
 bot.hears(/\/start/,(ctx) => {
     const telegramID = ctx.message.hasOwnProperty('chat') ? ctx.message.chat.id : ctx.message.from.id
     const user = new User({
@@ -2320,7 +2323,6 @@ bot.hears(/\/start/,(ctx) => {
         }
     }).catch(error => ctx.reply(`Что-то пошло не так\n${error}`))
 })
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 
 const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
