@@ -4,7 +4,6 @@ const express = require('express')
 const app = express()
 const bot = new Telegraf(helper.getToken())
 app.use(bot.webhookCallback('/bot'));
-bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
 const Extra = require('telegraf/extra')
 const Session = require('telegraf/session')
 const Stage = require('telegraf/stage')
@@ -1997,6 +1996,7 @@ bot.hears(keyboard.main_menuPage.all_menus_btn,ctx => {
 })
 const stage = new Stage([dessertScene,pizzaScene,drinksScene,takeOrderScene,panelScene],{default_scene:''})
 bot.use(Session())
+
 takeOrderScene.hears(/❌ (.+)/,ctx =>{
     helper.getDoughHeight(ctx.from.id,ctx.match[0].substring(2,ctx.match[0].length)).then((dough_height) =>{
         helper.getDoughSize(ctx.from.id,ctx.match[0].substring(2,ctx.match[0].length)).then((dough_size) =>{
@@ -2320,6 +2320,8 @@ bot.hears(/\/start/,(ctx) => {
         }
     }).catch(error => ctx.reply(`Что-то пошло не так\n${error}`))
 })
+bot.telegram.setWebhook('https://telegraftelegrambot.herokuapp.com/bot');
+
 const port = process.env.PORT || 3000;
 app.get('/', (req, res) => {
     res.send('Hello World!')
